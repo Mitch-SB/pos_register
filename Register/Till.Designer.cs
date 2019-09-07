@@ -184,6 +184,8 @@
             // 
             // btnQty
             // 
+            this.btnQty.FlatAppearance.BorderSize = 0;
+            this.btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQty.Location = new System.Drawing.Point(190, 19);
             this.btnQty.Name = "btnQty";
             this.btnQty.Size = new System.Drawing.Size(85, 50);
@@ -194,6 +196,8 @@
             // 
             // btnEnter
             // 
+            this.btnEnter.FlatAppearance.BorderSize = 0;
+            this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Location = new System.Drawing.Point(190, 187);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(85, 50);
@@ -204,6 +208,8 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Location = new System.Drawing.Point(190, 131);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 50);
@@ -214,6 +220,8 @@
             // 
             // btnClear
             // 
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Location = new System.Drawing.Point(190, 75);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(85, 50);
@@ -224,6 +232,8 @@
             // 
             // btn0
             // 
+            this.btn0.FlatAppearance.BorderSize = 0;
+            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn0.Location = new System.Drawing.Point(62, 187);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(50, 50);
@@ -234,6 +244,8 @@
             // 
             // btn3
             // 
+            this.btn3.FlatAppearance.BorderSize = 0;
+            this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Location = new System.Drawing.Point(118, 131);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(50, 50);
@@ -244,6 +256,8 @@
             // 
             // btn2
             // 
+            this.btn2.FlatAppearance.BorderSize = 0;
+            this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Location = new System.Drawing.Point(62, 131);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(50, 50);
@@ -254,6 +268,8 @@
             // 
             // btn1
             // 
+            this.btn1.FlatAppearance.BorderSize = 0;
+            this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Location = new System.Drawing.Point(6, 131);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(50, 50);
@@ -264,6 +280,8 @@
             // 
             // btn6
             // 
+            this.btn6.FlatAppearance.BorderSize = 0;
+            this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6.Location = new System.Drawing.Point(118, 75);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(50, 50);
@@ -274,6 +292,8 @@
             // 
             // btn5
             // 
+            this.btn5.FlatAppearance.BorderSize = 0;
+            this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Location = new System.Drawing.Point(62, 75);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(50, 50);
@@ -284,6 +304,8 @@
             // 
             // btn4
             // 
+            this.btn4.FlatAppearance.BorderSize = 0;
+            this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Location = new System.Drawing.Point(6, 75);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(50, 50);
@@ -294,6 +316,8 @@
             // 
             // btn9
             // 
+            this.btn9.FlatAppearance.BorderSize = 0;
+            this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9.Location = new System.Drawing.Point(118, 19);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(50, 50);
@@ -304,6 +328,8 @@
             // 
             // btn8
             // 
+            this.btn8.FlatAppearance.BorderSize = 0;
+            this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8.Location = new System.Drawing.Point(62, 19);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(50, 50);
@@ -314,6 +340,8 @@
             // 
             // btn7
             // 
+            this.btn7.FlatAppearance.BorderSize = 0;
+            this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7.Location = new System.Drawing.Point(6, 19);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(50, 50);
@@ -782,7 +810,6 @@
             this.ClientSize = new System.Drawing.Size(875, 498);
             this.Controls.Add(this.listBoxId21);
             this.Controls.Add(this.listBoxId18);
-            this.Controls.Add(this.groupBoxLock);
             this.Controls.Add(this.groupBoxUnlock);
             this.Controls.Add(this.BtnPrintSave);
             this.Controls.Add(this.groupBoxTenderTotal);
@@ -798,6 +825,7 @@
             this.Controls.Add(this.groupBoxMain);
             this.Controls.Add(this.listViewGrocery);
             this.Controls.Add(this.richTextBoxPrintCtrl1);
+            this.Controls.Add(this.groupBoxLock);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";

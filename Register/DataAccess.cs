@@ -79,6 +79,30 @@ namespace Register
             }
             return matchingCashier;
         }
-        
+
+        public Supervisors GetSupervisors(int Sup_Number)
+        {
+            Supervisors matchingSupervisors = new Supervisors();
+
+            using (SqlConnection myCnn = new SqlConnection(Helper.CnnVal("GroceriesDB")))
+            {
+                string oString = "dbo.Supervisors_GetBySup_Number @Sup_Number";
+                SqlCommand oCmd = new SqlCommand(oString, myCnn);
+                oCmd.Parameters.AddWithValue("@Sup_Number", Sup_Number);
+                myCnn.Open();
+                using (SqlDataReader oReader = oCmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        matchingSupervisors.Name = oReader["Name"].ToString();
+                        matchingSupervisors.Sup_Number = (int)oReader["Sup_Number"];
+                        matchingSupervisors.Sup_Password = (int)oReader["Sup_Password"];
+                    }
+
+                    myCnn.Close();
+                }
+            }
+            return matchingSupervisors;
+        }
     }
 }

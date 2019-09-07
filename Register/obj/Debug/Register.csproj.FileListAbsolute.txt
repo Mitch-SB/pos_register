@@ -11,3 +11,4 @@ C:\Users\Jack of Dunces\Source\Repos\Register\Register\obj\Debug\Register.exe
 C:\Users\Jack of Dunces\Source\Repos\Register\Register\obj\Debug\Register.pdb
 C:\Users\Jack of Dunces\Source\Repos\Register\Register\obj\Debug\Register.csprojResolveAssemblyReference.cache
 C:\Users\Jack of Dunces\Source\Repos\Register\Register\obj\Debug\Register.LogIn.resources
+C:\Users\Jack of Dunces\Source\Repos\Register\Register\obj\Debug\Register.NumPad.resources

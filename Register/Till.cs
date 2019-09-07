@@ -73,6 +73,7 @@ namespace Register
         {
             //Disables and hides specific controls
             groupBoxLock.Visible = true;
+            groupBoxLock.BringToFront();
             LblLockCashier.Text = _cashier;
 
             groupBoxPad.Enabled = false;
@@ -195,6 +196,8 @@ namespace Register
             qty = 1;
             lblQty.Visible = false;
         }
+
+        Control ActiveControl;
 
         //VVV Concatenates text, conditionally, into the appropriate text box up to a specified length VVV
 
@@ -567,6 +570,8 @@ namespace Register
             //Sets the current date/time on a 100 interval
             var date = DateTime.Now;
             lblDate.Text = date.ToString();
+
+            
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
@@ -724,6 +729,8 @@ namespace Register
 
                 //Reset quantity
                 qty = 1;
+
+                btnBack_Click(sender, e);
             }
             catch
             {
@@ -825,13 +832,9 @@ namespace Register
 
                 for (int i = 0; i < listViewGrocery.Items.Count; i++)
                 {
-                    if (listViewGrocery.Items[i].SubItems[1].Text == "")
+                    if (listViewGrocery.Items[i].SubItems[0].Text != "Coupon")
                     {
-                        
-                    }
-                    else
-                    {
-                        subTotal += decimal.Parse(listViewGrocery.Items[i].SubItems[1].Text);
+                        subTotal += decimal.Parse(listViewGrocery.Items[i].SubItems[1].Text) * decimal.Parse(listViewGrocery.Items[i].SubItems[2].Text);
                     }
                 }
 

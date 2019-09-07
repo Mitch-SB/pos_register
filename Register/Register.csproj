@@ -70,9 +70,16 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="NumPad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NumPad.Designer.cs">
+      <DependentUpon>NumPad.cs</DependentUpon>
+    </Compile>
     <Compile Include="RichTextBoxPrintCtrl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Supervisors.cs" />
     <Compile Include="Till.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumPad.resx">
+      <DependentUpon>NumPad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Till.resx">
       <DependentUpon>Till.cs</DependentUpon>
