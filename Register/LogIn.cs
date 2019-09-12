@@ -22,44 +22,9 @@ namespace Register
             //sets a mask for my password textbox
             txtPassword.UseSystemPasswordChar = true;
             this.ActiveControl = TxtCashier;
+            numPad1.ButtonClick += new EventHandler(numPad1_ButtonClick);
         }
-
-        private void LogInClear()
-        {
-            //Clears everything
-            TxtCashier.Clear();
-            txtPassword.Clear();
-            LblName.Text = "Cashier";
-
-            TxtCashier.Enabled = true;
-            TxtCashier.Focus();
-            txtPassword.Enabled = false;
-        }
-        
-        //concatenates text onto a specified text box for buttons 0 - 9
-        Control ActiveControl;
-        private void btn0_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            ActiveControl.Focus();
-            SendKeys.Send(btn.Text);
-
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            //Clears everything to default
-            LogInClear();
-            TxtCashier.Focus();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            //removes last character from string and assigns it back            
-            ActiveControl.Focus();
-            SendKeys.Send("{BS}");
-        }
-        
+                
         private void btnEnter_Click(object sender, EventArgs e)
         {
             
@@ -100,7 +65,7 @@ namespace Register
                     {
                         
                         MessageBox.Show("Invalid Cashier!");
-                        LogInClear();                        
+                        btnClear_Click(sender, e);                      
                     }
 
                 }
@@ -125,7 +90,7 @@ namespace Register
                     {
                         //resets the log in form
                         MessageBox.Show("Wrong Password!" + Environment.NewLine + "Try Again!");
-                        LogInClear();
+                        btnClear_Click(sender, e);
                     }
 
                 }
@@ -145,6 +110,25 @@ namespace Register
         private void txtPassword_Enter(object sender, EventArgs e)
         {
             ActiveControl = (Control)sender;
+        }
+
+        //concatenates text onto a specified text box for buttons 0 - 9
+        Control ActiveControl;
+        private void numPad1_ButtonClick(object sender, EventArgs e)
+        {
+            ActiveControl.Focus();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Clears everything to default
+            TxtCashier.Clear();
+            txtPassword.Clear();
+            LblName.Text = "Cashier";
+
+            TxtCashier.Enabled = true;
+            TxtCashier.Focus();
+            txtPassword.Enabled = false;
         }
     }
 }

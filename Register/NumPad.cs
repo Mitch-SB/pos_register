@@ -19,12 +19,37 @@ namespace Register
 
         public event EventHandler ButtonClick;
 
-        Control ActiveControl;
         protected void btn0_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            ActiveControl.Focus();
-            SendKeys.Send(btn.Text);
+            //bubble the event up to the parent
+            if (this.ButtonClick != null)
+            {
+                Button btn = (Button)sender;
+                ActiveControl.Focus();
+                SendKeys.Send(btn.Text);
+                this.ButtonClick(sender, e);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //if (this.ButtonClick != null)
+            //{
+            //    foreach (TextBox textbox in LogIn.ActiveForm.Controls.OfType<TextBox>())
+            //        textbox.Text = string.Empty;
+            //}
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //removes last character from string and assigns it back
+            if (this.ButtonClick != null)
+            {
+                Button btn = (Button)sender;
+                ActiveControl.Focus();
+                SendKeys.Send("{BS}");
+                this.ButtonClick(sender, e);
+            }
         }
     }
 }
