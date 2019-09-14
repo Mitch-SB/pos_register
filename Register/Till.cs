@@ -89,33 +89,7 @@ namespace Register
             btnLock.Text = "Unlock";
 
         }
-
-        private void ResetForm()
-        {
-            //Reset Form to its default values to start a new order
-            qty = 1;
-            subTotal = 0M;
-            total = 0M;
-
-            tax = 0M;
-            taxTotal = 0M;
-
-            change = 0M;
-            coupon = 0M;
-
-            label1.Text = "Start New Order";
-            TxtTotal.Text = "";
-            
-            richTextBoxPrintCtrl1.Clear();
-            richTextBoxPrintCtrl1.Visible = false;
-
-            //Empties out the ListView control
-            foreach (ListViewItem eachItem in listViewGrocery.Items)
-            {
-                listViewGrocery.Items.Remove(eachItem);
-            }
-        }
-        
+                
         private void TotalCount()
         {
             total = 0M; //clears total
@@ -143,8 +117,8 @@ namespace Register
                 }
             }
         }
-
-        private void MainClear()
+                
+        private void btnClear_Click(object sender, EventArgs e)
         {
             //Clears everything back into the default view
             if (BtnCash.Visible == true || TxtCashOut.Visible == true)
@@ -155,6 +129,7 @@ namespace Register
                 TxtCashOut.Visible = false;
                 TxtCashOut.Clear();
                 TxtUnlock.Clear();
+                txtInput.Focus();
 
                 BtnCoupon.Visible = true;
                 btnLock.Visible = true;
@@ -171,51 +146,7 @@ namespace Register
             qty = 1;
             lblQty.Visible = false;
         }
-        
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            MainClear();
-        }
-        
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            //create variables for each textbox to modify the text inside them
-            string i = txtInput.Text;
-            string o = TxtCashOut.Text;
-            string p = TxtUnlock.Text;
-
-            if (TxtCashOut.Visible == true & o != "0.00") 
-            {
-                if (o.Length > 0)
-                {
-                    string result = o.Remove((o.Length - 1), 1); //removes the last character out of the captured text
-
-                    TxtCashOut.Text = result;
-                }
-            } else
-            {
-                if (i.Length > 0)
-                {
-                    string result = i.Remove((i.Length - 1), 1);
-
-                    txtInput.Text = result;
-                }
-            }
-
-            if (i.Length > 0)
-            {
-                string result = i.Remove((i.Length - 1), 1);
-
-                txtInput.Text = result;
-            }
-            if (p.Length > 0)
-            {
-                string result = p.Remove((p.Length - 1), 1);
-
-                TxtUnlock.Text = result;
-            }
-        }
-        
+                        
         private void tmrDate_Tick(object sender, EventArgs e)
         {
             //Sets the current date/time on a 100 interval
@@ -271,8 +202,9 @@ namespace Register
 
                     return;
                 }
-
-                if (TxtCashOut.Visible == true) //calls the BtnPay click event
+                
+                //calls the BtnPay click event
+                if (TxtCashOut.Visible == true) 
                 {
                     BtnPay_Click(sender, e);
                     return;
@@ -514,6 +446,7 @@ namespace Register
                 btnRegOptions.Visible = true;
                 btnTender.Visible = true;
                 btnLock.Enabled = true;
+                btnRegOptions.Enabled = true;
 
                 groupBoxTenderTotal.Visible = false;
             }
@@ -545,6 +478,7 @@ namespace Register
                 groupBoxUnlock.Visible = false;
                 LockForm();
             }
+            txtInput.Focus();
         }
 
         private void BtnCoupon_Click(object sender, EventArgs e)
@@ -567,6 +501,7 @@ namespace Register
 
                 BtnEnterCoupon.Visible = true;
                 TxtCashOut.Visible = true;
+                TxtCashOut.Focus();
             }
 
         }
@@ -623,169 +558,165 @@ namespace Register
                         myCashBuilder.Insert((TxtCashOut.TextLength - 2), ".");
                         TxtCashOut.Text = myCashBuilder.ToString();
                     }
-                    
+                    return;
+                }
+
+                if (decimal.Parse(TxtCashOut.Text) < total)
+                {
+                    if (TxtCashOut.Text == "0.00")
+                    {
+                        return;
+                    }
+
+                    arr[0] = "Cash";
+                    arr[1] = "";
+                    arr[2] = "";
+                    arr[3] = "-" + TxtCashOut.Text;
+                    arr[4] = "";
+
+
+                    itm = new ListViewItem(arr);
+                    listViewGrocery.Items.Add(itm);
+
+                    TotalCount();
+
+                    btnClear_Click(sender, e);
+                    TxtCashOut.Clear();
+
+                    return;
                 }
                 else
                 {
-                    //array set up to input a cash entry into the ListView if the amount entered is less than the total amount
-                    if (decimal.Parse(TxtCashOut.Text) < total)
+                    //runs if the amount entered is greater than the total
+                    //renders everything back into the default view and reveals the richtextbox receipt
+                    BtnCash.Visible = false;
+                    BtnEFT.Visible = false;
+                    BtnPay.Visible = false;
+                    TxtCashOut.Visible = false;
+
+
+                    BtnCoupon.Visible = true;
+                    btnLock.Visible = true;
+                    btnVoid.Visible = true;
+                    btnRegOptions.Visible = true;
+                    btnTender.Visible = true;
+
+                    groupBoxTenderTotal.Visible = false;
+
+                    richTextBoxPrintCtrl1.Visible = true;
+
+
+                    //THIS VVVVVVVVV custom fontstyle and text alignment
+                    richTextBoxPrintCtrl1.SelectionFont = new Font(richTextBoxPrintCtrl1.Font, FontStyle.Bold);
+                    richTextBoxPrintCtrl1.SelectionAlignment = HorizontalAlignment.Center;
+                    //   VVVVVV Goes To VVVVVVV
+                    richTextBoxPrintCtrl1.SelectedText = header;
+
+                    //Appends each item inside the ListView into my table string builder
+                    rtfTable.Append(@"{\rtf1 ");
+                    for (int i = 0; i < listViewGrocery.Items.Count; i++)
                     {
-                        if (TxtCashOut.Text == "0.00")
-                        {
-                            return;
-                        }
-
-                        arr[0] = "Cash";
-                        arr[1] = "";
-                        arr[2] = "";
-                        arr[3] = "-" + decimal.Parse(TxtCashOut.Text).ToString("#.##");
-                        arr[4] = "";
-
-
-                        itm = new ListViewItem(arr);
-                        listViewGrocery.Items.Add(itm);
-
-                        TotalCount();
-
-                        MainClear();
-                        TxtCashOut.Clear();
-
-                        return;
+                        rtfTable.Append(@"\trowd");
+                        rtfTable.Append(@"\cellx1500" + listViewGrocery.Items[i].SubItems[0].Text);
+                        rtfTable.Append(@"\intbl\cell");
+                        rtfTable.Append(@"\cellx3000" + "");
+                        rtfTable.Append(@"\intbl\cell");
+                        rtfTable.Append(@"\cellx4500" + "x" + listViewGrocery.Items[i].SubItems[2].Text);
+                        rtfTable.Append(@"\intbl\cell");
+                        rtfTable.Append(@"\cellx6000" + "$" + listViewGrocery.Items[i].SubItems[3].Text);
+                        rtfTable.Append(@"\intbl\cell");
+                        rtfTable.Append(@"\cellx7500" + listViewGrocery.Items[i].SubItems[4].Text);
+                        rtfTable.Append(@"\intbl\cell\row");
                     }
-                    else
-                    {
-                        //runs if the amount entered is greater than the total
-                        //renders everything back into the default view and reveals the richtextbox receipt
-                        BtnCash.Visible = false;
-                        BtnEFT.Visible = false;
-                        BtnPay.Visible = false;
-                        TxtCashOut.Visible = false;
+                    //Appends the order total, Sales Tax, Grand Total, Cash Payment, Change, and savings into the table
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell\row");
 
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Order Total");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "$" + (total - taxTotal).ToString("#.##"));
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        BtnCoupon.Visible = true;
-                        btnLock.Visible = true;
-                        btnVoid.Visible = true;
-                        btnRegOptions.Visible = true;
-                        btnTender.Visible = true;
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Sales Tax");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + lblTax.Text);
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        groupBoxTenderTotal.Visible = false;
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Grand Total");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "$" + total.ToString("#.##"));
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        richTextBoxPrintCtrl1.Visible = true;
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Cash");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "Payment");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "$" + TxtCashOut.Text);
+                    rtfTable.Append(@"\intbl\cell\row");
 
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Change");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "$" + (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##"));
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        //THIS VVVVVVVVV custom fontstyle and text alignment
-                        richTextBoxPrintCtrl1.SelectionFont = new Font(richTextBoxPrintCtrl1.Font, FontStyle.Bold);
-                        richTextBoxPrintCtrl1.SelectionAlignment = HorizontalAlignment.Center;
-                        //   VVVVVV Goes To VVVVVVV
-                        richTextBoxPrintCtrl1.SelectedText = header;
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        //Appends each item inside the ListView into my table string builder
-                        rtfTable.Append(@"{\rtf1 ");
-                        for (int i = 0; i < listViewGrocery.Items.Count; i++)
-                        {
-                            rtfTable.Append(@"\trowd");
-                            rtfTable.Append(@"\cellx1500" + listViewGrocery.Items[i].SubItems[0].Text);
-                            rtfTable.Append(@"\intbl\cell");
-                            rtfTable.Append(@"\cellx3000" + "");
-                            rtfTable.Append(@"\intbl\cell");
-                            rtfTable.Append(@"\cellx4500" + "x" + listViewGrocery.Items[i].SubItems[2].Text);
-                            rtfTable.Append(@"\intbl\cell");
-                            rtfTable.Append(@"\cellx6000" + "$" + listViewGrocery.Items[i].SubItems[3].Text);
-                            rtfTable.Append(@"\intbl\cell");
-                            rtfTable.Append(@"\cellx7500" + listViewGrocery.Items[i].SubItems[4].Text);
-                            rtfTable.Append(@"\intbl\cell\row");
-                        }
-                        //Appends the order total, Sales Tax, Grand Total, Cash Payment, Change, and savings into the table
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell\row");
+                    rtfTable.Append(@"\trowd");
+                    rtfTable.Append(@"\cellx1500" + "Savings");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + "");
+                    rtfTable.Append(@"\intbl\cell");
+                    rtfTable.Append(@"\cellx1500" + lblSavings.Text);
+                    rtfTable.Append(@"\intbl\cell\row");
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Order Total");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "$" + (total - taxTotal).ToString("#.##"));
-                        rtfTable.Append(@"\intbl\cell\row");
+                    rtfTable.Append(@"\pard");
+                    rtfTable.Append(@"}");
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Sales Tax");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + lblTax.Text);
-                        rtfTable.Append(@"\intbl\cell\row");
+                    //trims any trailing occurance of the specified character
+                    string rtf1 = richTextBoxPrintCtrl1.Rtf.Trim().TrimEnd('}');
+                    string rtf2 = rtfTable.ToString();
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Grand Total");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "$" + total.ToString("#.##"));
-                        rtfTable.Append(@"\intbl\cell\row");
+                    //Place all text entries in a specified order into the rich text box
+                    richTextBoxPrintCtrl1.Select(header.ToString().Count(), 0);
+                    richTextBoxPrintCtrl1.SelectedRtf = rtf2;
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Cash");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "Payment");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "$" + TxtCashOut.Text);
-                        rtfTable.Append(@"\intbl\cell\row");
+                    richTextBoxPrintCtrl1.Text += tenderTime + footer;
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Change");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "$" + (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##"));
-                        rtfTable.Append(@"\intbl\cell\row");
+                    richTextBoxPrintCtrl1.BringToFront();
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell\row");
+                    label1.Text = "Change";
+                    TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");
 
-                        rtfTable.Append(@"\trowd");
-                        rtfTable.Append(@"\cellx1500" + "Savings");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + "");
-                        rtfTable.Append(@"\intbl\cell");
-                        rtfTable.Append(@"\cellx1500" + lblSavings.Text);
-                        rtfTable.Append(@"\intbl\cell\row");
-
-                        rtfTable.Append(@"\pard");
-                        rtfTable.Append(@"}");
-
-                        //trims any trailing occurance of the specified character
-                        string rtf1 = richTextBoxPrintCtrl1.Rtf.Trim().TrimEnd('}');
-                        string rtf2 = rtfTable.ToString();
-
-                        //Place all text entries in a specified order into the rich text box
-                        richTextBoxPrintCtrl1.Select(header.ToString().Count(), 0);
-                        richTextBoxPrintCtrl1.SelectedRtf = rtf2;
-
-                        richTextBoxPrintCtrl1.Text += tenderTime + footer;
-
-                        richTextBoxPrintCtrl1.BringToFront();
-
-                        label1.Text = "Change";
-                        TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");
-
-                        tmrReceipt.Enabled = true;
-                    }
+                    tmrReceipt.Enabled = true;
                 }
-
 
             }
             catch
@@ -857,10 +788,9 @@ namespace Register
                     itm = new ListViewItem(arr);
                     listViewGrocery.Items.Add(itm);
 
-                    MainClear();
+                    btnClear_Click(sender, e);
                     TotalCount();
                 }
-                
             }
         }
         
@@ -883,7 +813,7 @@ namespace Register
             {
                 groupBoxLock.Visible = false;
                 groupBoxUnlock.Visible = true;
-                //groupBoxPad.Enabled = true;
+                groupBoxUnlock.BringToFront();
                 BtnLogOff.Visible = false;
                 label12.Text = "Unlock";
                 TxtUnlock.Focus();
@@ -897,6 +827,7 @@ namespace Register
             btnVoid.Visible = false;
             btnTender.Visible = false;
             btnLock.Enabled = false;
+            btnRegOptions.Enabled = false;
 
             BtnLogOff.Visible = true;
         }
@@ -911,6 +842,8 @@ namespace Register
 
                 //groupBoxPad.Enabled = true;
                 label12.Text = "Log Off";
+                TxtUnlock.Focus();
+                txtInput.Enabled = false;
             }
             else
             {
@@ -963,7 +896,30 @@ namespace Register
             }
             else
                 MessageBox.Show("ERROR - Failed To Save Receipt!");
-            ResetForm();
+
+            //Reset Form to its default values to start a new order
+            qty = 1;
+            subTotal = 0M;
+            total = 0M;
+
+            tax = 0M;
+            taxTotal = 0M;
+
+            change = 0M;
+            coupon = 0M;
+
+            label1.Text = "Start New Order";
+            TxtTotal.Text = "";
+
+            richTextBoxPrintCtrl1.Clear();
+            richTextBoxPrintCtrl1.Visible = false;
+
+            //Empties out the ListView control
+            foreach (ListViewItem eachItem in listViewGrocery.Items)
+            {
+                listViewGrocery.Items.Remove(eachItem);
+            }
+            txtInput.Focus();
             tmrReceipt.Enabled = false;
         }
     }

@@ -146,7 +146,7 @@
             // btnQty
             // 
             this.btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQty.Location = new System.Drawing.Point(771, 215);
+            this.btnQty.Location = new System.Drawing.Point(582, 215);
             this.btnQty.Name = "btnQty";
             this.btnQty.Size = new System.Drawing.Size(85, 50);
             this.btnQty.TabIndex = 13;
@@ -157,7 +157,7 @@
             // btnEnter
             // 
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Location = new System.Drawing.Point(771, 383);
+            this.btnEnter.Location = new System.Drawing.Point(582, 383);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(85, 50);
             this.btnEnter.TabIndex = 12;
@@ -168,7 +168,7 @@
             // btnClear
             // 
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(771, 271);
+            this.btnClear.Location = new System.Drawing.Point(582, 271);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(85, 50);
             this.btnClear.TabIndex = 10;
@@ -181,10 +181,10 @@
             this.txtInput.BackColor = System.Drawing.SystemColors.Control;
             this.txtInput.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInput.Location = new System.Drawing.Point(455, 452);
+            this.txtInput.Location = new System.Drawing.Point(266, 452);
             this.txtInput.MaxLength = 12;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(408, 35);
+            this.txtInput.Size = new System.Drawing.Size(402, 35);
             this.txtInput.TabIndex = 16;
             this.txtInput.Enter += new System.EventHandler(this.txtInput_Enter);
             // 
@@ -207,7 +207,7 @@
             // 
             this.listViewGrocery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewGrocery.GridLines = true;
-            this.listViewGrocery.Location = new System.Drawing.Point(201, 12);
+            this.listViewGrocery.Location = new System.Drawing.Point(12, 12);
             this.listViewGrocery.Name = "listViewGrocery";
             this.listViewGrocery.Size = new System.Drawing.Size(360, 393);
             this.listViewGrocery.TabIndex = 19;
@@ -216,7 +216,7 @@
             // lblQty
             // 
             this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(393, 452);
+            this.lblQty.Location = new System.Drawing.Point(204, 452);
             this.lblQty.Name = "lblQty";
             this.lblQty.Size = new System.Drawing.Size(29, 13);
             this.lblQty.TabIndex = 22;
@@ -227,7 +227,7 @@
             // 
             this.TxtTotal.BackColor = System.Drawing.SystemColors.Window;
             this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.Location = new System.Drawing.Point(396, 411);
+            this.TxtTotal.Location = new System.Drawing.Point(207, 411);
             this.TxtTotal.MaxLength = 10;
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.ReadOnly = true;
@@ -238,7 +238,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(201, 411);
+            this.label1.Location = new System.Drawing.Point(12, 411);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 29);
             this.label1.TabIndex = 24;
@@ -259,7 +259,7 @@
             this.groupBoxMain.Controls.Add(this.btnRegOptions);
             this.groupBoxMain.Controls.Add(this.btnTender);
             this.groupBoxMain.Controls.Add(this.BtnEFT);
-            this.groupBoxMain.Location = new System.Drawing.Point(582, 12);
+            this.groupBoxMain.Location = new System.Drawing.Point(393, 12);
             this.groupBoxMain.Name = "groupBoxMain";
             this.groupBoxMain.Size = new System.Drawing.Size(281, 184);
             this.groupBoxMain.TabIndex = 3;
@@ -342,7 +342,7 @@
             this.groupBoxTenderTotal.Controls.Add(this.label4);
             this.groupBoxTenderTotal.Controls.Add(this.label3);
             this.groupBoxTenderTotal.Controls.Add(this.label2);
-            this.groupBoxTenderTotal.Location = new System.Drawing.Point(201, 72);
+            this.groupBoxTenderTotal.Location = new System.Drawing.Point(12, 72);
             this.groupBoxTenderTotal.Name = "groupBoxTenderTotal";
             this.groupBoxTenderTotal.Size = new System.Drawing.Size(360, 187);
             this.groupBoxTenderTotal.TabIndex = 27;
@@ -448,7 +448,7 @@
             this.groupBoxLock.Controls.Add(this.label7);
             this.groupBoxLock.Controls.Add(this.label6);
             this.groupBoxLock.Controls.Add(this.label10);
-            this.groupBoxLock.Location = new System.Drawing.Point(201, 72);
+            this.groupBoxLock.Location = new System.Drawing.Point(12, 72);
             this.groupBoxLock.Name = "groupBoxLock";
             this.groupBoxLock.Size = new System.Drawing.Size(360, 187);
             this.groupBoxLock.TabIndex = 31;
@@ -459,7 +459,7 @@
             // 
             this.LblLockCashier.AutoSize = true;
             this.LblLockCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLockCashier.Location = new System.Drawing.Point(135, 75);
+            this.LblLockCashier.Location = new System.Drawing.Point(135, 99);
             this.LblLockCashier.Name = "LblLockCashier";
             this.LblLockCashier.Size = new System.Drawing.Size(0, 29);
             this.LblLockCashier.TabIndex = 31;
@@ -468,7 +468,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(104, 121);
+            this.label7.Location = new System.Drawing.Point(104, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(153, 29);
             this.label7.TabIndex = 30;
@@ -478,7 +478,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(104, 45);
+            this.label6.Location = new System.Drawing.Point(104, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(153, 29);
             this.label6.TabIndex = 29;
@@ -488,7 +488,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(132, 16);
+            this.label10.Location = new System.Drawing.Point(137, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 29);
             this.label10.TabIndex = 28;
@@ -501,7 +501,7 @@
             this.groupBoxUnlock.Controls.Add(this.label9);
             this.groupBoxUnlock.Controls.Add(this.label11);
             this.groupBoxUnlock.Controls.Add(this.label12);
-            this.groupBoxUnlock.Location = new System.Drawing.Point(201, 72);
+            this.groupBoxUnlock.Location = new System.Drawing.Point(12, 72);
             this.groupBoxUnlock.Name = "groupBoxUnlock";
             this.groupBoxUnlock.Size = new System.Drawing.Size(360, 187);
             this.groupBoxUnlock.TabIndex = 32;
@@ -512,10 +512,10 @@
             // 
             this.TxtUnlock.BackColor = System.Drawing.SystemColors.Window;
             this.TxtUnlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUnlock.Location = new System.Drawing.Point(107, 68);
+            this.TxtUnlock.Location = new System.Drawing.Point(109, 90);
             this.TxtUnlock.MaxLength = 4;
             this.TxtUnlock.Name = "TxtUnlock";
-            this.TxtUnlock.Size = new System.Drawing.Size(147, 35);
+            this.TxtUnlock.Size = new System.Drawing.Size(140, 35);
             this.TxtUnlock.TabIndex = 31;
             this.TxtUnlock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtUnlock.Enter += new System.EventHandler(this.TxtUnlock_Enter);
@@ -525,7 +525,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(102, 115);
+            this.label9.Location = new System.Drawing.Point(104, 137);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 29);
             this.label9.TabIndex = 30;
@@ -536,7 +536,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(102, 39);
+            this.label11.Location = new System.Drawing.Point(104, 61);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 29);
             this.label11.TabIndex = 29;
@@ -546,7 +546,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(134, 16);
+            this.label12.Location = new System.Drawing.Point(137, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 29);
             this.label12.TabIndex = 28;
@@ -555,7 +555,7 @@
             // richTextBoxPrintCtrl1
             // 
             this.richTextBoxPrintCtrl1.BackColor = System.Drawing.Color.White;
-            this.richTextBoxPrintCtrl1.Location = new System.Drawing.Point(201, 12);
+            this.richTextBoxPrintCtrl1.Location = new System.Drawing.Point(12, 12);
             this.richTextBoxPrintCtrl1.Name = "richTextBoxPrintCtrl1";
             this.richTextBoxPrintCtrl1.ReadOnly = true;
             this.richTextBoxPrintCtrl1.Size = new System.Drawing.Size(360, 396);
@@ -565,7 +565,7 @@
             // 
             // numPad1
             // 
-            this.numPad1.Location = new System.Drawing.Point(584, 202);
+            this.numPad1.Location = new System.Drawing.Point(395, 202);
             this.numPad1.Name = "numPad1";
             this.numPad1.Size = new System.Drawing.Size(281, 244);
             this.numPad1.TabIndex = 35;
@@ -580,12 +580,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 498);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(684, 498);
+            this.Controls.Add(this.groupBoxLock);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnQty);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.numPad1);
-            this.Controls.Add(this.groupBoxUnlock);
             this.Controls.Add(this.groupBoxTenderTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtTotal);
@@ -595,7 +596,7 @@
             this.Controls.Add(this.groupBoxMain);
             this.Controls.Add(this.listViewGrocery);
             this.Controls.Add(this.richTextBoxPrintCtrl1);
-            this.Controls.Add(this.groupBoxLock);
+            this.Controls.Add(this.groupBoxUnlock);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
@@ -661,6 +662,7 @@
         private System.Windows.Forms.Button BtnLogOff;
         private NumPad numPad1;
         private System.Windows.Forms.Timer tmrReceipt;
+        
         //private Register.GroceryDbDataSet groceryDbDataSet1;
     }
 }
