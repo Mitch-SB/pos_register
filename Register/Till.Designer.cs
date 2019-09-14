@@ -64,7 +64,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.BtnPrintSave = new System.Windows.Forms.Button();
             this.groupBoxLock = new System.Windows.Forms.GroupBox();
             this.LblLockCashier = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -77,6 +76,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.richTextBoxPrintCtrl1 = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
             this.numPad1 = new NumPad();
+            this.tmrReceipt = new System.Windows.Forms.Timer(this.components);
             this.groupBoxMain.SuspendLayout();
             this.groupBoxTenderTotal.SuspendLayout();
             this.groupBoxLock.SuspendLayout();
@@ -441,16 +441,6 @@
             this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // BtnPrintSave
-            // 
-            this.BtnPrintSave.Location = new System.Drawing.Point(120, 416);
-            this.BtnPrintSave.Name = "BtnPrintSave";
-            this.BtnPrintSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrintSave.TabIndex = 30;
-            this.BtnPrintSave.Text = "Print/Save";
-            this.BtnPrintSave.UseVisualStyleBackColor = true;
-            this.BtnPrintSave.Click += new System.EventHandler(this.BtnPrintSave_Click);
-            // 
             // groupBoxLock
             // 
             this.groupBoxLock.BackColor = System.Drawing.Color.Silver;
@@ -581,6 +571,11 @@
             this.numPad1.TabIndex = 35;
             this.numPad1.ButtonClick += new System.EventHandler(this.numPad1_ButtonClick);
             // 
+            // tmrReceipt
+            // 
+            this.tmrReceipt.Interval = 3000;
+            this.tmrReceipt.Tick += new System.EventHandler(this.tmrReceipt_Tick);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +586,6 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.numPad1);
             this.Controls.Add(this.groupBoxUnlock);
-            this.Controls.Add(this.BtnPrintSave);
             this.Controls.Add(this.groupBoxTenderTotal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtTotal);
@@ -653,7 +647,6 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private RichTextBoxPrintCtrl.RichTextBoxPrintCtrl richTextBoxPrintCtrl1;
-        private System.Windows.Forms.Button BtnPrintSave;
         private System.Windows.Forms.Button BtnEnterCoupon;
         private System.Windows.Forms.GroupBox groupBoxLock;
         private System.Windows.Forms.Label LblLockCashier;
@@ -667,6 +660,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnLogOff;
         private NumPad numPad1;
+        private System.Windows.Forms.Timer tmrReceipt;
         //private Register.GroceryDbDataSet groceryDbDataSet1;
     }
 }

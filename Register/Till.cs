@@ -115,33 +115,7 @@ namespace Register
                 listViewGrocery.Items.Remove(eachItem);
             }
         }
-
-        private void SaveReceipt()
-        {
-            //Checks to see if my richTextBox control has value
-            //If it does, it saves it to a specified path
-            if (richTextBoxPrintCtrl1.Text != String.Empty)
-            {
-                //set directory
-                string dir = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy"); //add unique time format
-                //set path
-                string path = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy") + "\\" + DateTime.Now.ToString("HH.mm.ss") + ".rtxt";
-                if (!Directory.Exists(dir))
-                {
-                    Directory.CreateDirectory(dir); //creates directory if it does not exist
-                }
-
-                if (!File.Exists(path))
-                {
-                    using (File.Create(path)) ; //creates path if it does not exist
-                    richTextBoxPrintCtrl1.SaveFile(path, RichTextBoxStreamType.RichText); //saves richtextbox to file path
-                }
-
-            }
-            else
-                MessageBox.Show("ERROR - Failed To Save Receipt!");
-        }
-
+        
         private void TotalCount()
         {
             total = 0M; //clears total
@@ -806,7 +780,9 @@ namespace Register
                         richTextBoxPrintCtrl1.BringToFront();
 
                         label1.Text = "Change";
-                        TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");                        
+                        TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");
+
+                        tmrReceipt.Enabled = true;
                     }
                 }
 
@@ -828,13 +804,6 @@ namespace Register
                 e.HasMorePages = true;
             else
                 e.HasMorePages = false;
-        }
-
-        private void BtnPrintSave_Click(object sender, EventArgs e)
-        {
-            //Print/saves the receipt and resets the form
-            SaveReceipt();
-            ResetForm();
         }
 
         private void BtnEnterCoupon_Click(object sender, EventArgs e)
@@ -968,6 +937,34 @@ namespace Register
         private void numPad1_ButtonClick(object sender, EventArgs e)
         {
             ActiveControl.Focus();
+        }
+
+        private void tmrReceipt_Tick(object sender, EventArgs e)
+        {
+            //Checks to see if my richTextBox control has value
+            //If it does, it saves it to a specified path
+            if (richTextBoxPrintCtrl1.Text != String.Empty)
+            {
+                //set directory
+                string dir = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy"); //add unique time format
+                //set path
+                string path = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy") + "\\" + DateTime.Now.ToString("HH.mm.ss") + ".rtxt";
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir); //creates directory if it does not exist
+                }
+
+                if (!File.Exists(path))
+                {
+                    using (File.Create(path)) ; //creates path if it does not exist
+                    richTextBoxPrintCtrl1.SaveFile(path, RichTextBoxStreamType.RichText); //saves richtextbox to file path
+                }
+
+            }
+            else
+                MessageBox.Show("ERROR - Failed To Save Receipt!");
+            ResetForm();
+            tmrReceipt.Enabled = false;
         }
     }
     }
