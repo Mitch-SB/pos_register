@@ -61,6 +61,9 @@ namespace Register
             listViewGrocery.GridLines = true;
             listViewGrocery.FullRowSelect = true;
 
+            this.ActiveControl = txtInput;
+            numPad1.ButtonClick += new EventHandler(numPad1_ButtonClick);
+
             //Add column header
             listViewGrocery.Columns.Add("Product Name", 100);
             listViewGrocery.Columns.Add("Price", 70);
@@ -76,7 +79,7 @@ namespace Register
             groupBoxLock.BringToFront();
             LblLockCashier.Text = _cashier;
 
-            groupBoxPad.Enabled = false;
+            //groupBoxPad.Enabled = false;
 
             BtnCoupon.Enabled = false;
             btnVoid.Enabled = false;
@@ -101,8 +104,6 @@ namespace Register
             coupon = 0M;
 
             label1.Text = "Start New Order";
-            listBoxOrder.Hide();
-            listBoxOrderPrice.Hide();
             TxtTotal.Text = "";
             
             richTextBoxPrintCtrl1.Clear();
@@ -196,331 +197,7 @@ namespace Register
             qty = 1;
             lblQty.Visible = false;
         }
-
-        Control ActiveControl;
-
-        //VVV Concatenates text, conditionally, into the appropriate text box up to a specified length VVV
-
-        private void btn0_Click(object sender, EventArgs e)
-        {
-            
-            if(groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 0;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.TextLength <= 5 & TxtCashOut.Text != "")
-                    {
-                        TxtCashOut.Text += 0;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 0;
-                    }
-                }
-            }
-            
-        }
-
-        private void btn1_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 1;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if(TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 1;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 1;
-                    }
-                }
-            }
-        }
-
-        private void btn2_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 2;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 2;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 2;
-                    }
-                }
-            }
-        }
-
-        private void btn3_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 3;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 3;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 3;
-                    }
-                }
-            }
-        }
-
-        private void btn4_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 4;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 4;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 4;
-                    }
-                }
-            }
-        }
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 5;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 5;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 5;
-                    }
-                }
-            }
-        }
-
-        private void btn6_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 6;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 6;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 6;
-                    }
-                }
-            }
-        }
-
-        private void btn7_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 7;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 7;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 7;
-                    }
-                }
-            }
-        }
-
-        private void btn8_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 8;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 8;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 8;
-                    }
-                }
-            }
-        }
-
-        private void btn9_Click(object sender, EventArgs e)
-        {
-            if (groupBoxUnlock.Visible == true)
-            {
-                if (TxtUnlock.TextLength <= 3)
-                {
-                    TxtUnlock.Text += 9;
-                }
-            }
-            else
-            {
-                if (TxtCashOut.Visible == true)
-                {
-                    if (TxtCashOut.Text == "0.00")
-                    {
-                        TxtCashOut.Clear();
-                    }
-                    if (TxtCashOut.TextLength <= 5)
-                    {
-                        TxtCashOut.Text += 9;
-                    }
-                }
-                else
-                {
-                    if (txtInput.TextLength <= 11)
-                    {
-                        txtInput.Text += 9;
-                    }
-                }
-            }
-        }
-
-        //^^^ Concatenates text, conditionally, into the appropriate text box up to a specified length ^^^
-
+        
         private void btnClear_Click(object sender, EventArgs e)
         {
             MainClear();
@@ -580,9 +257,6 @@ namespace Register
 
             try
             {
-                listBoxOrder.Text = "";
-                listBoxOrderPrice.Text = "";
-
                 //This code will validate the password input field
                 //if the password matches, the form is unlocked, if not, it resets
                 if (groupBoxUnlock.Visible == true)
@@ -611,13 +285,14 @@ namespace Register
 
                         TxtUnlock.Clear();
                         btnLock.Text = "Lock";
+                        txtInput.Enabled = true;
+                        txtInput.Focus();
                         return;
                     }
                     else
                     {
                         MessageBox.Show("Incorrect Password!");
                         TxtUnlock.Clear();
-
                     }
 
                     return;
@@ -631,21 +306,14 @@ namespace Register
 
 
                 //Establish Connection
-
                 DataAccess db = new DataAccess();
 
                 //Gets the appropriate grocery based on the look up entry from the input textbox
                 Grocery grocery = db.GetGrocery(Convert.ToInt16(txtInput.Text));
-
-                listBoxOrder.Text = grocery.Name;
-                listBoxOrderPrice.Text = grocery.Price.ToString();
                 
                 //Add first item
                 if (grocery.Name != null) //will not run if the user types in an invalid lookup number
                 {
-                    listBoxOrder.Show();
-                    listBoxOrderPrice.Show();
-
                     txtInput.Clear();
                     lblQty.Visible = false;
                     label1.Text = "Total:";
@@ -832,7 +500,7 @@ namespace Register
 
                 for (int i = 0; i < listViewGrocery.Items.Count; i++)
                 {
-                    if (listViewGrocery.Items[i].SubItems[0].Text != "Coupon")
+                    if (listViewGrocery.Items[i].SubItems[0].Text != "Coupon" & listViewGrocery.Items[i].SubItems[0].Text != "Cash")
                     {
                         subTotal += decimal.Parse(listViewGrocery.Items[i].SubItems[1].Text) * decimal.Parse(listViewGrocery.Items[i].SubItems[2].Text);
                     }
@@ -850,6 +518,7 @@ namespace Register
             BtnEFT.Visible = false;
             TxtCashOut.Visible = true;
             BtnPay.Visible = true;
+            TxtCashOut.Focus();
 
             TxtCashOut.Text = "0.00";
         }
@@ -1235,6 +904,7 @@ namespace Register
                 txtInput.Clear();
                 TxtCashOut.Clear();
                 label12.Text = "Lock";
+                txtInput.Enabled = false;
 
                 return;
             }
@@ -1244,9 +914,10 @@ namespace Register
             {
                 groupBoxLock.Visible = false;
                 groupBoxUnlock.Visible = true;
-                groupBoxPad.Enabled = true;
+                //groupBoxPad.Enabled = true;
                 BtnLogOff.Visible = false;
                 label12.Text = "Unlock";
+                TxtUnlock.Focus();
             }
         }
 
@@ -1269,7 +940,7 @@ namespace Register
                 groupBoxUnlock.Visible = true;
                 groupBoxLock.Visible = false;
 
-                groupBoxPad.Enabled = true;
+                //groupBoxPad.Enabled = true;
                 label12.Text = "Log Off";
             }
             else
@@ -1278,6 +949,26 @@ namespace Register
             }
         }
 
+        private void txtInput_Enter(object sender, EventArgs e)
+        {
+            ActiveControl = (Control)sender;
+        }
+
+        private void TxtCashOut_Enter(object sender, EventArgs e)
+        {
+            ActiveControl = (Control)sender;
+        }
+
+        private void TxtUnlock_Enter(object sender, EventArgs e)
+        {
+            ActiveControl = (Control)sender;
+        }
+
+        Control ActiveControl;
+        private void numPad1_ButtonClick(object sender, EventArgs e)
+        {
+            ActiveControl.Focus();
+        }
     }
     }
 

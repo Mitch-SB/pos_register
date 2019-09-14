@@ -34,14 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblName = new System.Windows.Forms.Label();
-            this.numPad1 = new Register.NumPad();
+            this.numPad1 = new NumPad();
             this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEnter
             // 
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Location = new System.Drawing.Point(198, 318);
+            this.btnEnter.Location = new System.Drawing.Point(198, 314);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(85, 50);
             this.btnEnter.TabIndex = 12;
@@ -109,7 +109,7 @@
             // 
             // numPad1
             // 
-            this.numPad1.Location = new System.Drawing.Point(11, 147);
+            this.numPad1.Location = new System.Drawing.Point(11, 133);
             this.numPad1.Name = "numPad1";
             this.numPad1.Size = new System.Drawing.Size(281, 244);
             this.numPad1.TabIndex = 29;
@@ -119,7 +119,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.SystemColors.Control;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(198, 206);
+            this.btnClear.Location = new System.Drawing.Point(198, 202);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(85, 50);
             this.btnClear.TabIndex = 30;

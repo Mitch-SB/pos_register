@@ -77,7 +77,7 @@ namespace Register
                     //runs if the password entered matches the users password
                     if (txtPassword.Text == register._password)
                     {
-                        MessageBox.Show("Whoohooo!");
+                        MessageBox.Show("Log In Successful!");
                         
                         //closes/hides the log in form
                         this.Hide();

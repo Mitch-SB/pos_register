@@ -47,8 +47,9 @@
             // btnQty
             // 
             this.btnQty.BackColor = System.Drawing.SystemColors.Control;
+            this.btnQty.Enabled = false;
             this.btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQty.Location = new System.Drawing.Point(187, 3);
+            this.btnQty.Location = new System.Drawing.Point(187, 13);
             this.btnQty.Name = "btnQty";
             this.btnQty.Size = new System.Drawing.Size(85, 50);
             this.btnQty.TabIndex = 13;
@@ -57,8 +58,9 @@
             // btnEnter
             // 
             this.btnEnter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEnter.Enabled = false;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Location = new System.Drawing.Point(187, 171);
+            this.btnEnter.Location = new System.Drawing.Point(187, 181);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(85, 50);
             this.btnEnter.TabIndex = 12;
@@ -68,7 +70,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(187, 115);
+            this.btnDelete.Location = new System.Drawing.Point(187, 125);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 50);
             this.btnDelete.TabIndex = 11;
@@ -79,8 +81,9 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClear.Enabled = false;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(187, 59);
+            this.btnClear.Location = new System.Drawing.Point(187, 69);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(85, 50);
             this.btnClear.TabIndex = 10;
@@ -92,7 +95,7 @@
             // 
             this.btn0.BackColor = System.Drawing.SystemColors.Control;
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Location = new System.Drawing.Point(59, 171);
+            this.btn0.Location = new System.Drawing.Point(59, 181);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(50, 50);
             this.btn0.TabIndex = 9;
@@ -104,7 +107,7 @@
             // 
             this.btn3.BackColor = System.Drawing.SystemColors.Control;
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn3.Location = new System.Drawing.Point(115, 115);
+            this.btn3.Location = new System.Drawing.Point(115, 125);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(50, 50);
             this.btn3.TabIndex = 8;
@@ -116,7 +119,7 @@
             // 
             this.btn2.BackColor = System.Drawing.SystemColors.Control;
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2.Location = new System.Drawing.Point(59, 115);
+            this.btn2.Location = new System.Drawing.Point(59, 125);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(50, 50);
             this.btn2.TabIndex = 7;
@@ -128,7 +131,7 @@
             // 
             this.btn1.BackColor = System.Drawing.SystemColors.Control;
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Location = new System.Drawing.Point(3, 115);
+            this.btn1.Location = new System.Drawing.Point(3, 125);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(50, 50);
             this.btn1.TabIndex = 6;
@@ -140,7 +143,7 @@
             // 
             this.btn6.BackColor = System.Drawing.SystemColors.Control;
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn6.Location = new System.Drawing.Point(115, 59);
+            this.btn6.Location = new System.Drawing.Point(115, 69);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(50, 50);
             this.btn6.TabIndex = 5;
@@ -152,7 +155,7 @@
             // 
             this.btn5.BackColor = System.Drawing.SystemColors.Control;
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn5.Location = new System.Drawing.Point(59, 59);
+            this.btn5.Location = new System.Drawing.Point(59, 69);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(50, 50);
             this.btn5.TabIndex = 4;
@@ -164,7 +167,7 @@
             // 
             this.btn4.BackColor = System.Drawing.SystemColors.Control;
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn4.Location = new System.Drawing.Point(3, 59);
+            this.btn4.Location = new System.Drawing.Point(3, 69);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(50, 50);
             this.btn4.TabIndex = 3;
@@ -176,7 +179,7 @@
             // 
             this.btn9.BackColor = System.Drawing.SystemColors.Control;
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn9.Location = new System.Drawing.Point(115, 3);
+            this.btn9.Location = new System.Drawing.Point(115, 13);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(50, 50);
             this.btn9.TabIndex = 2;
@@ -188,7 +191,7 @@
             // 
             this.btn8.BackColor = System.Drawing.SystemColors.Control;
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn8.Location = new System.Drawing.Point(59, 3);
+            this.btn8.Location = new System.Drawing.Point(59, 13);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(50, 50);
             this.btn8.TabIndex = 1;
@@ -200,7 +203,7 @@
             // 
             this.btn7.BackColor = System.Drawing.SystemColors.Control;
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn7.Location = new System.Drawing.Point(3, 3);
+            this.btn7.Location = new System.Drawing.Point(3, 13);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(50, 50);
             this.btn7.TabIndex = 0;

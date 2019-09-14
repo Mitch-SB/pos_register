@@ -36,31 +36,16 @@
             this.btnRegOptions = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnTender = new System.Windows.Forms.Button();
-            this.groupBoxPad = new System.Windows.Forms.GroupBox();
             this.btnQty = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btn0 = new System.Windows.Forms.Button();
-            this.btn3 = new System.Windows.Forms.Button();
-            this.btn2 = new System.Windows.Forms.Button();
-            this.btn1 = new System.Windows.Forms.Button();
-            this.btn6 = new System.Windows.Forms.Button();
-            this.btn5 = new System.Windows.Forms.Button();
-            this.btn4 = new System.Windows.Forms.Button();
-            this.btn9 = new System.Windows.Forms.Button();
-            this.btn8 = new System.Windows.Forms.Button();
-            this.btn7 = new System.Windows.Forms.Button();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.tmrDate = new System.Windows.Forms.Timer(this.components);
-            this.listBoxOrder = new System.Windows.Forms.ListBox();
             this.listViewGrocery = new System.Windows.Forms.ListView();
-            this.listBoxOrderPrice = new System.Windows.Forms.ListBox();
             this.lblQty = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBoxTax = new System.Windows.Forms.ListBox();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
             this.BtnLogOff = new System.Windows.Forms.Button();
             this.BtnEnterCoupon = new System.Windows.Forms.Button();
@@ -90,10 +75,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.listBoxId18 = new System.Windows.Forms.ListBox();
-            this.listBoxId21 = new System.Windows.Forms.ListBox();
             this.richTextBoxPrintCtrl1 = new RichTextBoxPrintCtrl.RichTextBoxPrintCtrl();
-            this.groupBoxPad.SuspendLayout();
+            this.numPad1 = new NumPad();
             this.groupBoxMain.SuspendLayout();
             this.groupBoxTenderTotal.SuspendLayout();
             this.groupBoxLock.SuspendLayout();
@@ -160,33 +143,10 @@
             this.btnTender.UseVisualStyleBackColor = true;
             this.btnTender.Click += new System.EventHandler(this.btnTender_Click);
             // 
-            // groupBoxPad
-            // 
-            this.groupBoxPad.Controls.Add(this.btnQty);
-            this.groupBoxPad.Controls.Add(this.btnEnter);
-            this.groupBoxPad.Controls.Add(this.btnDelete);
-            this.groupBoxPad.Controls.Add(this.btnClear);
-            this.groupBoxPad.Controls.Add(this.btn0);
-            this.groupBoxPad.Controls.Add(this.btn3);
-            this.groupBoxPad.Controls.Add(this.btn2);
-            this.groupBoxPad.Controls.Add(this.btn1);
-            this.groupBoxPad.Controls.Add(this.btn6);
-            this.groupBoxPad.Controls.Add(this.btn5);
-            this.groupBoxPad.Controls.Add(this.btn4);
-            this.groupBoxPad.Controls.Add(this.btn9);
-            this.groupBoxPad.Controls.Add(this.btn8);
-            this.groupBoxPad.Controls.Add(this.btn7);
-            this.groupBoxPad.Location = new System.Drawing.Point(582, 202);
-            this.groupBoxPad.Name = "groupBoxPad";
-            this.groupBoxPad.Size = new System.Drawing.Size(281, 244);
-            this.groupBoxPad.TabIndex = 15;
-            this.groupBoxPad.TabStop = false;
-            // 
             // btnQty
             // 
-            this.btnQty.FlatAppearance.BorderSize = 0;
             this.btnQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQty.Location = new System.Drawing.Point(190, 19);
+            this.btnQty.Location = new System.Drawing.Point(771, 215);
             this.btnQty.Name = "btnQty";
             this.btnQty.Size = new System.Drawing.Size(85, 50);
             this.btnQty.TabIndex = 13;
@@ -196,9 +156,8 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.FlatAppearance.BorderSize = 0;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Location = new System.Drawing.Point(190, 187);
+            this.btnEnter.Location = new System.Drawing.Point(771, 383);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(85, 50);
             this.btnEnter.TabIndex = 12;
@@ -206,23 +165,10 @@
             this.btnEnter.UseVisualStyleBackColor = true;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(190, 131);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(85, 50);
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "<==";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnClear
             // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(190, 75);
+            this.btnClear.Location = new System.Drawing.Point(771, 271);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(85, 50);
             this.btnClear.TabIndex = 10;
@@ -230,136 +176,17 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btn0
-            // 
-            this.btn0.FlatAppearance.BorderSize = 0;
-            this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn0.Location = new System.Drawing.Point(62, 187);
-            this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(50, 50);
-            this.btn0.TabIndex = 9;
-            this.btn0.Text = "0";
-            this.btn0.UseVisualStyleBackColor = true;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
-            // 
-            // btn3
-            // 
-            this.btn3.FlatAppearance.BorderSize = 0;
-            this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn3.Location = new System.Drawing.Point(118, 131);
-            this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(50, 50);
-            this.btn3.TabIndex = 8;
-            this.btn3.Text = "3";
-            this.btn3.UseVisualStyleBackColor = true;
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
-            // 
-            // btn2
-            // 
-            this.btn2.FlatAppearance.BorderSize = 0;
-            this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2.Location = new System.Drawing.Point(62, 131);
-            this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(50, 50);
-            this.btn2.TabIndex = 7;
-            this.btn2.Text = "2";
-            this.btn2.UseVisualStyleBackColor = true;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
-            // 
-            // btn1
-            // 
-            this.btn1.FlatAppearance.BorderSize = 0;
-            this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn1.Location = new System.Drawing.Point(6, 131);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(50, 50);
-            this.btn1.TabIndex = 6;
-            this.btn1.Text = "1";
-            this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
-            // 
-            // btn6
-            // 
-            this.btn6.FlatAppearance.BorderSize = 0;
-            this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn6.Location = new System.Drawing.Point(118, 75);
-            this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(50, 50);
-            this.btn6.TabIndex = 5;
-            this.btn6.Text = "6";
-            this.btn6.UseVisualStyleBackColor = true;
-            this.btn6.Click += new System.EventHandler(this.btn6_Click);
-            // 
-            // btn5
-            // 
-            this.btn5.FlatAppearance.BorderSize = 0;
-            this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn5.Location = new System.Drawing.Point(62, 75);
-            this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(50, 50);
-            this.btn5.TabIndex = 4;
-            this.btn5.Text = "5";
-            this.btn5.UseVisualStyleBackColor = true;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click);
-            // 
-            // btn4
-            // 
-            this.btn4.FlatAppearance.BorderSize = 0;
-            this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn4.Location = new System.Drawing.Point(6, 75);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(50, 50);
-            this.btn4.TabIndex = 3;
-            this.btn4.Text = "4";
-            this.btn4.UseVisualStyleBackColor = true;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
-            // 
-            // btn9
-            // 
-            this.btn9.FlatAppearance.BorderSize = 0;
-            this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn9.Location = new System.Drawing.Point(118, 19);
-            this.btn9.Name = "btn9";
-            this.btn9.Size = new System.Drawing.Size(50, 50);
-            this.btn9.TabIndex = 2;
-            this.btn9.Text = "9";
-            this.btn9.UseVisualStyleBackColor = true;
-            this.btn9.Click += new System.EventHandler(this.btn9_Click);
-            // 
-            // btn8
-            // 
-            this.btn8.FlatAppearance.BorderSize = 0;
-            this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn8.Location = new System.Drawing.Point(62, 19);
-            this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(50, 50);
-            this.btn8.TabIndex = 1;
-            this.btn8.Text = "8";
-            this.btn8.UseVisualStyleBackColor = true;
-            this.btn8.Click += new System.EventHandler(this.btn8_Click);
-            // 
-            // btn7
-            // 
-            this.btn7.FlatAppearance.BorderSize = 0;
-            this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn7.Location = new System.Drawing.Point(6, 19);
-            this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(50, 50);
-            this.btn7.TabIndex = 0;
-            this.btn7.Text = "7";
-            this.btn7.UseVisualStyleBackColor = true;
-            this.btn7.Click += new System.EventHandler(this.btn7_Click);
-            // 
             // txtInput
             // 
             this.txtInput.BackColor = System.Drawing.SystemColors.Control;
+            this.txtInput.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInput.Location = new System.Drawing.Point(455, 452);
-            this.txtInput.MaxLength = 10;
+            this.txtInput.MaxLength = 12;
             this.txtInput.Name = "txtInput";
-            this.txtInput.ReadOnly = true;
             this.txtInput.Size = new System.Drawing.Size(408, 35);
             this.txtInput.TabIndex = 16;
+            this.txtInput.Enter += new System.EventHandler(this.txtInput_Enter);
             // 
             // lblDate
             // 
@@ -376,20 +203,6 @@
             this.tmrDate.Enabled = true;
             this.tmrDate.Tick += new System.EventHandler(this.tmrDate_Tick);
             // 
-            // listBoxOrder
-            // 
-            this.listBoxOrder.BackColor = System.Drawing.SystemColors.Highlight;
-            this.listBoxOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxOrder.ForeColor = System.Drawing.Color.Cyan;
-            this.listBoxOrder.FormattingEnabled = true;
-            this.listBoxOrder.ItemHeight = 29;
-            this.listBoxOrder.Location = new System.Drawing.Point(12, 12);
-            this.listBoxOrder.MultiColumn = true;
-            this.listBoxOrder.Name = "listBoxOrder";
-            this.listBoxOrder.Size = new System.Drawing.Size(183, 29);
-            this.listBoxOrder.TabIndex = 18;
-            // 
             // listViewGrocery
             // 
             this.listViewGrocery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,20 +212,6 @@
             this.listViewGrocery.Size = new System.Drawing.Size(360, 393);
             this.listViewGrocery.TabIndex = 19;
             this.listViewGrocery.UseCompatibleStateImageBehavior = false;
-            // 
-            // listBoxOrderPrice
-            // 
-            this.listBoxOrderPrice.BackColor = System.Drawing.SystemColors.Highlight;
-            this.listBoxOrderPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxOrderPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxOrderPrice.ForeColor = System.Drawing.Color.Cyan;
-            this.listBoxOrderPrice.FormattingEnabled = true;
-            this.listBoxOrderPrice.ItemHeight = 29;
-            this.listBoxOrderPrice.Location = new System.Drawing.Point(12, 38);
-            this.listBoxOrderPrice.MultiColumn = true;
-            this.listBoxOrderPrice.Name = "listBoxOrderPrice";
-            this.listBoxOrderPrice.Size = new System.Drawing.Size(183, 29);
-            this.listBoxOrderPrice.TabIndex = 21;
             // 
             // lblQty
             // 
@@ -445,15 +244,6 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Start New Order";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // listBoxTax
-            // 
-            this.listBoxTax.FormattingEnabled = true;
-            this.listBoxTax.Location = new System.Drawing.Point(12, 74);
-            this.listBoxTax.Name = "listBoxTax";
-            this.listBoxTax.Size = new System.Drawing.Size(183, 17);
-            this.listBoxTax.TabIndex = 25;
-            this.listBoxTax.Visible = false;
             // 
             // groupBoxMain
             // 
@@ -511,16 +301,15 @@
             // TxtCashOut
             // 
             this.TxtCashOut.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCashOut.Enabled = false;
             this.TxtCashOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCashOut.Location = new System.Drawing.Point(6, 16);
-            this.TxtCashOut.MaxLength = 10;
+            this.TxtCashOut.MaxLength = 6;
             this.TxtCashOut.Name = "TxtCashOut";
-            this.TxtCashOut.ReadOnly = true;
             this.TxtCashOut.Size = new System.Drawing.Size(165, 35);
             this.TxtCashOut.TabIndex = 28;
             this.TxtCashOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtCashOut.Visible = false;
+            this.TxtCashOut.Enter += new System.EventHandler(this.TxtCashOut_Enter);
             // 
             // BtnCash
             // 
@@ -732,15 +521,14 @@
             // TxtUnlock
             // 
             this.TxtUnlock.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtUnlock.Enabled = false;
             this.TxtUnlock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUnlock.Location = new System.Drawing.Point(107, 68);
-            this.TxtUnlock.MaxLength = 10;
+            this.TxtUnlock.MaxLength = 4;
             this.TxtUnlock.Name = "TxtUnlock";
-            this.TxtUnlock.ReadOnly = true;
             this.TxtUnlock.Size = new System.Drawing.Size(147, 35);
             this.TxtUnlock.TabIndex = 31;
             this.TxtUnlock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtUnlock.Enter += new System.EventHandler(this.TxtUnlock_Enter);
             // 
             // label9
             // 
@@ -774,24 +562,6 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "Unlock";
             // 
-            // listBoxId18
-            // 
-            this.listBoxId18.FormattingEnabled = true;
-            this.listBoxId18.Location = new System.Drawing.Point(12, 97);
-            this.listBoxId18.Name = "listBoxId18";
-            this.listBoxId18.Size = new System.Drawing.Size(183, 17);
-            this.listBoxId18.TabIndex = 33;
-            this.listBoxId18.Visible = false;
-            // 
-            // listBoxId21
-            // 
-            this.listBoxId21.FormattingEnabled = true;
-            this.listBoxId21.Location = new System.Drawing.Point(12, 120);
-            this.listBoxId21.Name = "listBoxId21";
-            this.listBoxId21.Size = new System.Drawing.Size(183, 17);
-            this.listBoxId21.TabIndex = 34;
-            this.listBoxId21.Visible = false;
-            // 
             // richTextBoxPrintCtrl1
             // 
             this.richTextBoxPrintCtrl1.BackColor = System.Drawing.Color.White;
@@ -803,25 +573,31 @@
             this.richTextBoxPrintCtrl1.Text = "";
             this.richTextBoxPrintCtrl1.Visible = false;
             // 
+            // numPad1
+            // 
+            this.numPad1.Location = new System.Drawing.Point(584, 202);
+            this.numPad1.Name = "numPad1";
+            this.numPad1.Size = new System.Drawing.Size(281, 244);
+            this.numPad1.TabIndex = 35;
+            this.numPad1.ButtonClick += new System.EventHandler(this.numPad1_ButtonClick);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 498);
-            this.Controls.Add(this.listBoxId21);
-            this.Controls.Add(this.listBoxId18);
+            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.btnQty);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.numPad1);
             this.Controls.Add(this.groupBoxUnlock);
             this.Controls.Add(this.BtnPrintSave);
             this.Controls.Add(this.groupBoxTenderTotal);
-            this.Controls.Add(this.listBoxTax);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtTotal);
-            this.Controls.Add(this.listBoxOrder);
-            this.Controls.Add(this.listBoxOrderPrice);
             this.Controls.Add(this.lblQty);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.txtInput);
-            this.Controls.Add(this.groupBoxPad);
             this.Controls.Add(this.groupBoxMain);
             this.Controls.Add(this.listViewGrocery);
             this.Controls.Add(this.richTextBoxPrintCtrl1);
@@ -830,7 +606,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBoxPad.ResumeLayout(false);
             this.groupBoxMain.ResumeLayout(false);
             this.groupBoxMain.PerformLayout();
             this.groupBoxTenderTotal.ResumeLayout(false);
@@ -851,31 +626,16 @@
         private System.Windows.Forms.Button btnRegOptions;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnTender;
-        private System.Windows.Forms.GroupBox groupBoxPad;
         private System.Windows.Forms.Button btnQty;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btn0;
-        private System.Windows.Forms.Button btn3;
-        private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.Button btn1;
-        private System.Windows.Forms.Button btn6;
-        private System.Windows.Forms.Button btn5;
-        private System.Windows.Forms.Button btn4;
-        private System.Windows.Forms.Button btn9;
-        private System.Windows.Forms.Button btn8;
-        private System.Windows.Forms.Button btn7;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Timer tmrDate;
-        private System.Windows.Forms.ListBox listBoxOrder;
         private System.Windows.Forms.ListView listViewGrocery;
-        private System.Windows.Forms.ListBox listBoxOrderPrice;
         private System.Windows.Forms.Label lblQty;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBoxTax;
         private System.Windows.Forms.GroupBox groupBoxMain;
         private System.Windows.Forms.Button BtnEFT;
         private System.Windows.Forms.Button BtnCash;
@@ -906,8 +666,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnLogOff;
-        private System.Windows.Forms.ListBox listBoxId18;
-        private System.Windows.Forms.ListBox listBoxId21;
+        private NumPad numPad1;
         //private Register.GroceryDbDataSet groceryDbDataSet1;
     }
 }
