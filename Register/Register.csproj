@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Cashiers.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Grocery.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="LogIn.cs">

@@ -47,6 +47,7 @@
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxMain = new System.Windows.Forms.GroupBox();
+            this.btnTillReport = new System.Windows.Forms.Button();
             this.BtnLogOff = new System.Windows.Forms.Button();
             this.BtnEnterCoupon = new System.Windows.Forms.Button();
             this.BtnPay = new System.Windows.Forms.Button();
@@ -247,6 +248,7 @@
             // 
             // groupBoxMain
             // 
+            this.groupBoxMain.Controls.Add(this.btnTillReport);
             this.groupBoxMain.Controls.Add(this.BtnLogOff);
             this.groupBoxMain.Controls.Add(this.BtnEnterCoupon);
             this.groupBoxMain.Controls.Add(this.BtnPay);
@@ -264,6 +266,17 @@
             this.groupBoxMain.Size = new System.Drawing.Size(281, 184);
             this.groupBoxMain.TabIndex = 3;
             this.groupBoxMain.TabStop = false;
+            // 
+            // btnTillReport
+            // 
+            this.btnTillReport.Location = new System.Drawing.Point(8, 16);
+            this.btnTillReport.Name = "btnTillReport";
+            this.btnTillReport.Size = new System.Drawing.Size(85, 50);
+            this.btnTillReport.TabIndex = 32;
+            this.btnTillReport.Text = "Till Report";
+            this.btnTillReport.UseVisualStyleBackColor = true;
+            this.btnTillReport.Visible = false;
+            this.btnTillReport.Click += new System.EventHandler(this.btnTillReport_Click);
             // 
             // BtnLogOff
             // 
@@ -565,6 +578,7 @@
             // 
             // numPad1
             // 
+            this.numPad1.BackColor = System.Drawing.SystemColors.Control;
             this.numPad1.Location = new System.Drawing.Point(395, 202);
             this.numPad1.Name = "numPad1";
             this.numPad1.Size = new System.Drawing.Size(281, 244);
@@ -662,7 +676,8 @@
         private System.Windows.Forms.Button BtnLogOff;
         private NumPad numPad1;
         private System.Windows.Forms.Timer tmrReceipt;
-        
+        private System.Windows.Forms.Button btnTillReport;
+
         //private Register.GroceryDbDataSet groceryDbDataSet1;
     }
 }

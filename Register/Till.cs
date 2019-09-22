@@ -34,8 +34,6 @@ namespace Register
         public decimal coupon = 0M;
 
         private int checkPrint;
-        public string _cashier;
-        public string _password;
         
 
         private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
@@ -77,7 +75,7 @@ namespace Register
             //Disables and hides specific controls
             groupBoxLock.Visible = true;
             groupBoxLock.BringToFront();
-            LblLockCashier.Text = _cashier;
+            LblLockCashier.Text = Global.Cashier;
 
             //groupBoxPad.Enabled = false;
 
@@ -166,7 +164,7 @@ namespace Register
                 //if the password matches, the form is unlocked, if not, it resets
                 if (groupBoxUnlock.Visible == true)
                 {
-                    if (TxtUnlock.Text == _password)
+                    if (TxtUnlock.Text == Global.Password)
                     {
                         //If the Unlock groupbox text is set to "Log Off", it will close the current form and launch
                         //the initial LogIn Form
@@ -439,6 +437,7 @@ namespace Register
                 BtnEFT.Visible = false;
                 BtnPay.Visible = false;
                 BtnLogOff.Visible = false;
+                btnTillReport.Visible = false;
 
                 BtnCoupon.Visible = true;
                 btnLock.Visible = true;
@@ -519,22 +518,6 @@ namespace Register
                 //string builder that allows me to insert decimal points into certain parts of the textfiled based on how many characters are inside
                 StringBuilder myCashBuilder = new StringBuilder(TxtCashOut.Text);
 
-                //string builder for my richtextbox
-                StringBuilder rtfTable = new StringBuilder();
-
-                //array set up to input a cash entry into the ListView if the amount entered is less than the total amount
-                string[] arr = new string[5];
-                ListViewItem itm;
-
-                //header for my receipt
-                string header = "Mitch's Grocery & Mercantile Supply" + Environment.NewLine
-                    + "1234 Best Damn Groceries Rd" + Environment.NewLine + "Vieques, PR 00765"
-                    + Environment.NewLine + "407-555-5555" + Environment.NewLine + Environment.NewLine;
-                string footer = Environment.NewLine + "Thank You Very Much For Shopping With Us" + Environment.NewLine +
-                    "Your Cashier was: " + _cashier + Environment.NewLine +
-                    "We Hope To See You Again!" + Environment.NewLine + Environment.NewLine + "Mitch's Grocery & Mercantile Supply";
-                string tenderTime = Environment.NewLine + lblDate.Text + Environment.NewLine;
-
                 //Allows insertion of a decimal point based on how many characters are inside the string
                 string cashStr = TxtCashOut.Text;
 
@@ -560,6 +543,22 @@ namespace Register
                     }
                     return;
                 }
+                
+                //string builder for my richtextbox
+                StringBuilder rtfTable = new StringBuilder();
+
+                //array set up to input a cash entry into the ListView if the amount entered is less than the total amount
+                string[] arr = new string[5];
+                ListViewItem itm;
+
+                //header for my receipt
+                string header = "Mitch's Grocery & Mercantile Supply" + Environment.NewLine
+                    + "1234 Best Damn Groceries Rd" + Environment.NewLine + "Vieques, PR 00765"
+                    + Environment.NewLine + "407-555-5555" + Environment.NewLine + Environment.NewLine;
+                string footer = Environment.NewLine + "Thank You Very Much For Shopping With Us" + Environment.NewLine +
+                    "Your Cashier was: " + Global.Cashier + Environment.NewLine +
+                    "We Hope To See You Again!" + Environment.NewLine + Environment.NewLine + "Mitch's Grocery & Mercantile Supply";
+                string tenderTime = Environment.NewLine + lblDate.Text + Environment.NewLine;
 
                 if (decimal.Parse(TxtCashOut.Text) < total)
                 {
@@ -714,6 +713,8 @@ namespace Register
 
                     label1.Text = "Change";
                     TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");
+                    
+                    Global.CashInTill += total;
 
                     tmrReceipt.Enabled = true;
                 }
@@ -826,10 +827,12 @@ namespace Register
             BtnCoupon.Visible = false;
             btnVoid.Visible = false;
             btnTender.Visible = false;
+
             btnLock.Enabled = false;
             btnRegOptions.Enabled = false;
 
             BtnLogOff.Visible = true;
+            btnTillReport.Visible = true;
         }
 
         private void BtnLogOff_Click(object sender, EventArgs e)
@@ -838,6 +841,7 @@ namespace Register
             if (listViewGrocery.Items.Count < 1)
             {
                 groupBoxUnlock.Visible = true;
+                groupBoxUnlock.BringToFront();
                 groupBoxLock.Visible = false;
 
                 //groupBoxPad.Enabled = true;
@@ -879,9 +883,9 @@ namespace Register
             if (richTextBoxPrintCtrl1.Text != String.Empty)
             {
                 //set directory
-                string dir = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy"); //add unique time format
+                string dir = @"C:\Users\Jack of Dunces\Source\Repos\pos_register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy"); //add unique time format
                 //set path
-                string path = @"C:\Users\Jack of Dunces\Source\Repos\Register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy") + "\\" + DateTime.Now.ToString("HH.mm.ss") + ".rtxt";
+                string path = @"C:\Users\Jack of Dunces\Source\Repos\pos_register\Register\ReceiptHistory\" + DateTime.Today.ToString("dd_MMM_yy") + "\\" + DateTime.Now.ToString("HH.mm.ss") + ".rtxt";
                 if (!Directory.Exists(dir))
                 {
                     Directory.CreateDirectory(dir); //creates directory if it does not exist
@@ -921,6 +925,73 @@ namespace Register
             }
             txtInput.Focus();
             tmrReceipt.Enabled = false;
+            btnBack_Click(sender, e);
+        }
+
+        private void btnTillReport_Click(object sender, EventArgs e)
+        {
+            //string builder for my richtextbox
+            StringBuilder rtfTable = new StringBuilder();
+
+            //array set up to input a cash entry into the ListView if the amount entered is less than the total amount
+            string[] arr = new string[5];
+            ListViewItem itm;
+
+            //header for my receipt
+            string header = "Mitch's Grocery & Mercantile Supply" + Environment.NewLine
+                + "1234 Best Damn Groceries Rd" + Environment.NewLine + "Vieques, PR 00765"
+                + Environment.NewLine + "407-555-5555" + Environment.NewLine + Environment.NewLine;
+            string footer = Environment.NewLine + "Thank You Very Much For Shopping With Us" + Environment.NewLine +
+                "Your Cashier was: " + Global.Cashier + Environment.NewLine +
+                "We Hope To See You Again!" + Environment.NewLine + Environment.NewLine + "Mitch's Grocery & Mercantile Supply";
+            string tenderTime = Environment.NewLine + lblDate.Text + Environment.NewLine;
+
+            //THIS VVVVVVVVV custom fontstyle and text alignment
+            richTextBoxPrintCtrl1.SelectionFont = new Font(richTextBoxPrintCtrl1.Font, FontStyle.Bold);
+            richTextBoxPrintCtrl1.SelectionAlignment = HorizontalAlignment.Center;
+            //   VVVVVV Goes To VVVVVVV
+            richTextBoxPrintCtrl1.SelectedText = header;
+
+            //Appends each item inside the ListView into my table string builder
+            rtfTable.Append(@"{\rtf1 ");
+
+            rtfTable.Append(@"\trowd");
+            rtfTable.Append(@"\cellx1500" + "Cash in Till");
+            rtfTable.Append(@"\intbl\cell");
+            rtfTable.Append(@"\cellx1500" + "");
+            rtfTable.Append(@"\intbl\cell");
+            rtfTable.Append(@"\cellx1500" + "$" + Global.CashInTill.ToString("#.##"));
+            rtfTable.Append(@"\intbl\cell\row");
+
+            rtfTable.Append(@"\trowd");
+            rtfTable.Append(@"\cellx1500" + "");
+            rtfTable.Append(@"\intbl\cell\row");
+
+            rtfTable.Append(@"\trowd");
+            rtfTable.Append(@"\cellx1500" + "Coupons in Till");
+            rtfTable.Append(@"\intbl\cell");
+            rtfTable.Append(@"\cellx1500" + "");
+            rtfTable.Append(@"\intbl\cell");
+            rtfTable.Append(@"\cellx1500" + "$" + Global.CouponsInTill.ToString("#.##"));
+            rtfTable.Append(@"\intbl\cell\row");
+
+            rtfTable.Append(@"\pard");
+            rtfTable.Append(@"}");
+
+            //trims any trailing occurance of the specified character
+            string rtf1 = richTextBoxPrintCtrl1.Rtf.Trim().TrimEnd('}');
+            string rtf2 = rtfTable.ToString();
+
+            //Place all text entries in a specified order into the rich text box
+            richTextBoxPrintCtrl1.Select(header.ToString().Count(), 0);
+            richTextBoxPrintCtrl1.SelectedRtf = rtf2;
+
+            richTextBoxPrintCtrl1.Text += tenderTime + footer;
+
+            richTextBoxPrintCtrl1.BringToFront();
+            richTextBoxPrintCtrl1.Visible = true;
+
+            tmrReceipt.Enabled = true;
         }
     }
     }

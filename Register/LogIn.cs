@@ -15,7 +15,6 @@ namespace Register
     public partial class LogIn : Form
     {
         public Register register = new Register();
-
         public LogIn()
         {
             InitializeComponent();
@@ -46,16 +45,16 @@ namespace Register
                         
                         if(c.Name != null)
                         {
-                            register._cashier = c.Name;
-                            register._password = c.UserPassword.ToString();
+                            Global.Cashier = c.Name;
+                            Global.Password = c.UserPassword.ToString();
                         }
 
                         if (s.Name != null)
                         {
-                            register._cashier = s.Name;
-                            register._password = s.Sup_Password.ToString();
+                            Global.Cashier = s.Name;
+                            Global.Password = s.Sup_Password.ToString();
                         }
-                        LblName.Text = register._cashier;
+                        LblName.Text = Global.Cashier;
                         TxtCashier.Enabled = false;
                         txtPassword.Enabled = true;
                         txtPassword.Focus();
@@ -75,7 +74,7 @@ namespace Register
                 {
 
                     //runs if the password entered matches the users password
-                    if (txtPassword.Text == register._password)
+                    if (txtPassword.Text == Global.Password)
                     {
                         MessageBox.Show("Log In Successful!");
                         
