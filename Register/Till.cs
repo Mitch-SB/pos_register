@@ -394,7 +394,7 @@ namespace Register
                         coupon += decimal.Parse(listViewGrocery.Items[i].SubItems[3].Text);
                     }
                 }
-                lblSavings.Text = "$" + coupon;
+                lblSavings.Text = "$" + (coupon * -1);
 
 
                 lblTax.Text = "$" + taxTotal.ToString("0.00");
@@ -507,8 +507,6 @@ namespace Register
         
         private void BtnPay_Click(object sender, EventArgs e)
         {
-            try
-            {
                 //if payment field is empty, will stop execution
                 if (TxtCashOut.Text == "")
                 {
@@ -714,16 +712,13 @@ namespace Register
                     label1.Text = "Change";
                     TxtTotal.Text = (total - decimal.Parse(TxtCashOut.Text)).ToString("#.##");
                     
-                    Global.CashInTill += total;
+                    Global.CashInTill += subTotal;
+                    //Global.CashInTill += total;
+                    Global.CouponsInTill += coupon * -1;
 
                     tmrReceipt.Enabled = true;
                 }
-
-            }
-            catch
-            {
                 
-            }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

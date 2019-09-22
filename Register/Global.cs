@@ -9,7 +9,7 @@ namespace Register
     static class Global
     {
         private static decimal _cashInTill = 250M;
-        private static decimal _couponsInTill = 0M;
+        private static decimal _couponsInTill = 0.00M;
         private static string _cashier;
         private static string _password;
 
