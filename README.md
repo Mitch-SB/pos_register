@@ -1,7 +1,7 @@
 # pos_register
 Cash register
 
-# Point Of Sale - VB
+# Point Of Sale - C#
 This is a cash register created from scratch to hone up my skills working with WinForms in C#. It's an ongoing project who's purpose is to demonstrate my understanding of said language and use this as a project for my portfolio.
 I demonstrate key skills in implementing use of the .NET Framework and SQl Server.
 ## Pictures
